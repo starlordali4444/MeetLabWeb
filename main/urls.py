@@ -19,4 +19,5 @@ from main import views
 
 urlpatterns = [
     path('', views.index, name="index"),
+    path('Contact-Us', views.contact, name="contact"),
 ]
