@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-import mimetypes
-mimetypes.add_type("text/css", ".css", True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'bpy895qg5o$2=@9az%*_w6*@49y9$g-r)oz+mr+xwzw^y(xal!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['134.209.150.29']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -90,15 +88,13 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'meetlab',
-            'USER': 'ali',
+            'NAME': 'MeetLabWeb',
+            'USER': 'ALI',
             'PASSWORD': 'Ali@db007',
             'HOST': 'localhost',
             'PORT': '',
         }
     }
-
-
 
 
 
@@ -140,15 +136,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIR=[
-    BASE_DIR /"static"
-]
+STATIC_ROOT = 'static_root'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = 'static_root'
-MEDIA_ROOT = BASE_DIR /'media_root'
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+MEDIA_ROOT = BASE_DIR/ "media"
 
 
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
@@ -157,4 +150,3 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
-
