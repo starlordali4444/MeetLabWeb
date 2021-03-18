@@ -1,20 +1,42 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
-    <section class="banner_part">
-        <div class="container">
-            <div class="row align-items-center justify-content-end">
-                <div class="col-lg-5">
-                    <div class="banner_text text-center">
-                        <div class="banner_text_iner">
-                            <h5>Model Photography</h5>
-                            <h1>Creative <span>Studio</span></h1>
-                            <p>Capturing moments from today</p>
-                            <a href="#" class="btn_1">view work</a>
-                        </div>
-                    </div>
+{% load static %}
+    <section class="slider_section">
+        <div id="jssor_1" class="">
+            <!-- Loading Screen -->
+            <div data-u="loading" class="jssorl-009-spin sty_jssorl-009-spin" src="{% static 'main/svg/loading/static-svg/spin.svg' %}" />
+            </div>
+            <div data-u="slides"  class="u_sli">
+                {% for s in sli %}                
+                    <div>
+                        <img data-u="image" src="{{s.img.url}}" />
+                    </div>                
+                {% endfor %}               
+            </div>
+            <!-- Bullet Navigator -->
+            <div data-u="navigator" class="jssorb053" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
+                <div data-u="prototype" class="i" style="width:16px;height:16px;">
+                    <svg viewBox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                        <path class="b" d="M11400,13800H4600c-1320,0-2400-1080-2400-2400V4600c0-1320,1080-2400,2400-2400h6800 c1320,0,2400,1080,2400,2400v6800C13800,12720,12720,13800,11400,13800z"></path>
+                    </svg>
                 </div>
             </div>
+             <!-- Arrow Navigator -->
+            <div data-u="arrowleft" class="jssora093" style="width:50px;height:50px;top:0px;left:30px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
+                <svg viewBox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    <circle class="c" cx="8000" cy="8000" r="5920"></circle>
+                    <polyline class="a" points="7777.8,6080 5857.8,8000 7777.8,9920 "></polyline>
+                    <line class="a" x1="10142.2" y1="8000" x2="5857.8" y2="8000"></line>
+                </svg>
+            </div>
+            <div data-u="arrowright" class="jssora093" style="width:50px;height:50px;top:0px;right:30px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
+                <svg viewBox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    <circle class="c" cx="8000" cy="8000" r="5920"></circle>
+                    <polyline class="a" points="8222.2,6080 10142.2,8000 8222.2,9920 "></polyline>
+                    <line class="a" x1="5857.8" y1="8000" x2="10142.2" y2="8000"></line>
+                </svg>
+            </div> 
         </div>
     </section>
     <!--::banner part start::-->
@@ -59,10 +81,9 @@
                     <div class="portfolio-filter filters">
                         <ul>
                             <li class="active" data-filter="all">All photos</li>
-                            <li data-filter="1"> weeding</li>
-                            <li data-filter="2">fashion</li>
-                            <li data-filter="3">portrait</li>
-                            <li data-filter="4">magazine</li>
+                            {% for service in services %}                                
+                                <li data-filter="{{service.id}}"> {{service.name}}</li>                            
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -70,8 +91,9 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="gallery_part_item filtr-container">
-                        <a href="portfolio_details.html" class="img-gal filtr-item" data-category="1"
-                            style="background-image: url('img/gallery/gallery_item_1.png')">
+                    {% for photo in photos %}
+                        <a href="portfolio_details.html" class="img-gal filtr-item {{photo.width}}" data-category="{{photo.category.id}}"
+                            style="background-image: url({{photo.img.url}})">
                             <div class="single_gallery_item">
                                 <div class="single_gallery_item_iner">
                                     <div class="gallery_item_text">
@@ -81,61 +103,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="portfolio_details.html" class="img-gal width-1 filtr-item" data-category="2"
-                            style="background-image: url('img/gallery/gallery_item_2.png')">
-                            <div class="single_gallery_item">
-                                <div class="single_gallery_item_iner">
-                                    <div class="gallery_item_text">
-                                        <p>Fashion photography</p>
-                                        <h4>Smiling beutiful women</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="portfolio_details.html" class="img-gal width-2 filtr-item" data-category="3"
-                            style="background-image: url('img/gallery/gallery_item_3.png')">
-                            <div class="single_gallery_item">
-                                <div class="single_gallery_item_iner">
-                                    <div class="gallery_item_text">
-                                        <p>Fashion photography</p>
-                                        <h4>Smiling beutiful women</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="portfolio_details.html" class="img-gal width-2 filtr-item" data-category="4"
-                            style="background-image: url('img/gallery/gallery_item_4.png')">
-                            <div class="single_gallery_item">
-                                <div class="single_gallery_item_iner">
-                                    <div class="gallery_item_text">
-                                        <p>Fashion photography</p>
-                                        <h4>Smiling beutiful women</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="portfolio_details.html" class="img-gal width-1 filtr-item" data-category="1"
-                            style="background-image: url('img/gallery/gallery_item_5.png')">
-                            <div class="single_gallery_item">
-                                <div class="single_gallery_item_iner">
-                                    <div class="gallery_item_text">
-                                        <p>Fashion photography</p>
-                                        <h4>Smiling beutiful women</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="portfolio_details.html" class="img-gal filtr-item" data-category="2"
-                            style="background-image: url('img/gallery/gallery_item_6.png')">
-                            <div class="single_gallery_item">
-                                <div class="single_gallery_item_iner">
-                                    <div class="gallery_item_text">
-                                        <p>Fashion photography</p>
-                                        <h4>Smiling beutiful women</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                    {% endfor %}                        
                     </div>
                 </div>
             </div>
@@ -154,39 +122,40 @@
                     </div>
                 </div>
             </div>
-            <div class="row align-items-center filtr-container">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_offer_text text-center wedding">
-                        <span class="flaticon-love-and-romance"></span>
-                        <h4>wedding photography</h4>
-                        <p>World the end of summer the sweltering heat makes human
-                            sweat in the night and man plants and trees wilt even</p>
-                        <a href="#" class="btn_1">read more</a>
-                    </div>
-                    <div class="single_offer_img d-none d-md-block">
-                        <img src="img/single_offer_img_2.png" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-6">
-                    <div class="single_offer_img d-none d-md-block">
-                        <img src="img/single_offer_img_1.png" alt="">
-                    </div>
-                    <div class="single_offer_text text-center nature">
-                        <span class="flaticon-leaf"></span>
-                        <h4>Nature photography</h4>
-                        <p>that the monsoon clouds are soon coming, there is a
-                            strange silence in the ears, the sky gets darker and
-                            darker, the flash of lightning illuminates the dark
-                            skies all time needs band the sound of thunder fills the heart with fear.</p>
-                        <a href="#" class="btn_1">read more</a>
-                    </div>
-                </div>
+            <div class="row align-items-center filtr-container">  
+                {% for service in services %}
+                    {% if service.align == "l" %}                                     
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single_offer_text text-center wedding">
+                                <span class="flaticon-leaf"></span>
+                                <h4>{{service.name}}</h4>
+                                <p>{{service.desc}}</p>
+                                <a href="#" class="btn_1">read more</a>
+                            </div>
+                            <div class="single_offer_img d-none d-md-block">
+                                <img src="{{ service.img.url }}" alt="">
+                            </div>
+                        </div>   
+                    {% else %}  
+                        <div class="col-lg-8 col-md-6">
+                            <div class="single_offer_img d-none d-md-block">
+                                <img src="{{ service.img.url }}" alt="">
+                            </div>
+                            <div class="single_offer_text text-center nature">
+                                <span class="flaticon-love-and-romance"></span>
+                                <h4>{{service.name}}</h4>
+                                <p>{{service.desc}}</p>
+                                <a href="#" class="btn_1">read more</a>
+                            </div>
+                        </div>                           
+                    {% endif %}                 
+                {% endfor %} 
             </div>
         </div>
     </section>
     <!--::our_service part end::-->
 
-    <!--::review_part part start::-->
+    {% comment %} <!--::review_part part start::-->
     <section class="review_part">
         <div class="container">
             <div class="row align-items-center justify-content-between">
@@ -373,8 +342,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> {% endcomment %}
     <!--::blog part end::-->
+    
 {% endblock content %}
 
   

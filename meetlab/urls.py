@@ -15,8 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from . import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('main.urls')),
+    path('Services/',include('services.urls')),
+    path('photos/',include('photos.urls')),
 ]
+
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+        urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+admin.site.site_header = "Meet Studio & Labs Admin"
+admin.site.site_title = "MS&L Admin Portal"
+admin.site.index_title = "Welcome to Meet Studio & Lab Portal"
