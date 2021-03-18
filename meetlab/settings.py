@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'bpy895qg5o$2=@9az%*_w6*@49y9$g-r)oz+mr+xwzw^y(xal!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['134.209.150.29']
 
@@ -45,7 +45,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -142,9 +141,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = BASE_DIR /'static_root'
-MEDIA_ROOT = BASE_DIR /'media_root'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = BASE_DIR/'static_root/'
+MEDIA_ROOT = BASE_DIR/'media_root/'
 
 
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
