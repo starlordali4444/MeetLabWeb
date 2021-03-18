@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -139,10 +140,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIR=[
+    BASE_DIR /"static"
+]
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = BASE_DIR/'static_root/'
-MEDIA_ROOT = BASE_DIR/'media_root/'
+STATIC_ROOT = 'static_root'
+MEDIA_ROOT = BASE_DIR /'media_root'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
