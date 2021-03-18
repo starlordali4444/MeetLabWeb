@@ -25,7 +25,7 @@ SECRET_KEY = 'bpy895qg5o$2=@9az%*_w6*@49y9$g-r)oz+mr+xwzw^y(xal!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['68.183.83.188']
 
 
 # Application definition
@@ -150,3 +150,6 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
+
+
+
