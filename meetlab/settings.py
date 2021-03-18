@@ -27,7 +27,7 @@ SECRET_KEY = 'bpy895qg5o$2=@9az%*_w6*@49y9$g-r)oz+mr+xwzw^y(xal!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['142.93.220.156']
+ALLOWED_HOSTS = ['134.209.150.29']
 
 
 # Application definition
@@ -139,16 +139,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-# STATICFILES_DIRS =[
-#     BASE_DIR/ "static",
-# ]
-
-STATIC_ROOT = BASE_DIR/ "static/"
-
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = BASE_DIR/ "media"
+STATIC_ROOT = BASE_DIR/'static_root'
+MEDIA_ROOT = BASE_DIR/'media_root'
 
 
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
@@ -157,3 +151,4 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
+
