@@ -87,7 +87,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'MeetLabWeb',
+            'NAME': 'MEETLAB',
             'USER': 'ali',
             'PASSWORD': 'Ali@db007',
             'HOST': 'localhost',
