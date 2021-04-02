@@ -25,11 +25,9 @@ SECRET_KEY = 'bpy895qg5o$2=@9az%*_w6*@49y9$g-r)oz+mr+xwzw^y(xal!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    '68.183.83.188',
-    'meetphotolab.in',
-    'www.meetphotolab.in',
-]
+ALLOWED_HOSTS =['*']
+
+
 
 
 # Application definition
