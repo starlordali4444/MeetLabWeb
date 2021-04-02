@@ -8,7 +8,7 @@ class Services(models.Model):
     name=models.CharField(max_length=60)
     desc=models.TextField()
     align=models.CharField(max_length=10,choices=alignChoice)
-    img=models.ImageField(upload_to='services/')
+    img=models.ImageField(null=True, blank=True, upload_to='services/')
 
     def __str__(self):
         return self.name

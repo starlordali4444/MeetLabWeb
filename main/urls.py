@@ -21,4 +21,5 @@ app_name='main'
 urlpatterns = [
     path('', views.IndexPageView.as_view(), name="index"),
     path('Contact-Us', views.ContactCreateView.as_view(), name="contact"),
+    path('About-Us', views.AboutPageView.as_view(), name="about"),
 ]

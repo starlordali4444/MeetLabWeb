@@ -8,11 +8,18 @@
             <div data-u="loading" class="jssorl-009-spin sty_jssorl-009-spin" src="{% static 'main/svg/loading/static-svg/spin.svg' %}" />
             </div>
             <div data-u="slides"  class="u_sli">
-                {% for s in sli %}                
+                {% if sli %}
+                    {% for s in sli %}                
+                        <div>
+                            <img data-u="image" src="{{s.img.url}}" />
+                        </div>                
+                    {% endfor %}   
+                {% else %}
                     <div>
-                        <img data-u="image" src="{{s.img.url}}" />
-                    </div>                
-                {% endfor %}               
+                        <img data-u="image" src="media/slider/default.jpg" />
+                    </div> 
+            {% endif %}
+                            
             </div>
             <!-- Bullet Navigator -->
             <div data-u="navigator" class="jssorb053" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">

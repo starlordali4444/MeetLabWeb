@@ -18,7 +18,7 @@
     <!-- breadcrumb start-->
 
     <!--::our_service part start::-->
-    <section class="our_service padding_top">
+    <section class="our_service padding_bottom">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -28,40 +28,41 @@
                     </div>
                 </div>
             </div>
-            <div class="row align-items-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_offer_text text-center wedding">
-                        <span class="flaticon-love-and-romance"></span>
-                        <h4>wedding photography</h4>
-                        <p>World the end of summer the sweltering heat makes human
-                            sweat in the night and man plants and trees wilt even</p>
-                        <a href="#" class="btn_1">read more</a>
-                    </div>
-                    <div class="single_offer_img d-none d-md-block">
-                        <img src="img/single_offer_img_2.png" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-6">
-                    <div class="single_offer_img d-none d-md-block">
-                        <img src="img/single_offer_img_1.png" alt="">
-                    </div>
-                    <div class="single_offer_text text-center nature">
-                        <span class="flaticon-leaf"></span>
-                        <h4>Nature photography</h4>
-                        <p>that the monsoon clouds are soon coming, there is a
-                            strange silence in the ears, the sky gets darker and
-                            darker, the flash of lightning illuminates the dark
-                            skies all time needs band the sound of thunder fills the heart with fear.</p>
-                        <a href="#" class="btn_1">read more</a>
-                    </div>
-                </div>
+            <div class="row align-items-center filtr-container">  
+                {% for service in services %}
+                    {% if service.align == "l" %}                                     
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single_offer_text text-center wedding">
+                                <span class="flaticon-leaf"></span>
+                                <h4>{{service.name}}</h4>
+                                <p>{{service.desc}}</p>
+                                <a href="#" class="btn_1">read more</a>
+                            </div>
+                            <div class="single_offer_img d-none d-md-block">
+                                <img src="{{ service.img.url }}" alt="">
+                            </div>
+                        </div>   
+                    {% else %}  
+                        <div class="col-lg-8 col-md-6">
+                            <div class="single_offer_img d-none d-md-block">
+                                <img src="{{ service.img.url }}" alt="">
+                            </div>
+                            <div class="single_offer_text text-center nature">
+                                <span class="flaticon-love-and-romance"></span>
+                                <h4>{{service.name}}</h4>
+                                <p>{{service.desc}}</p>
+                                <a href="#" class="btn_1">read more</a>
+                            </div>
+                        </div>                           
+                    {% endif %}                 
+                {% endfor %} 
             </div>
         </div>
     </section>
     <!--::our_service part end::-->
 
     <!--::pricing part start::-->
-    <section class="pricing_part section_padding">
+    {% comment %} <section class="pricing_part section_padding">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -135,8 +136,8 @@
 
             </div>
         </div>
-    </section>
-    <!--::pricing part end::-->
+    </section> {% endcomment %}
+    <!--::pricing part end::--> 
 {% endblock content %}
 
 

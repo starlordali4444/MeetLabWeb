@@ -25,7 +25,11 @@ SECRET_KEY = 'bpy895qg5o$2=@9az%*_w6*@49y9$g-r)oz+mr+xwzw^y(xal!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['68.183.83.188','meetphotolab.in','www.meetphotolab.in']
+ALLOWED_HOSTS = [
+    '68.183.83.188',
+    'meetphotolab.in',
+    'www.meetphotolab.in',
+]
 
 
 # Application definition
@@ -37,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cleanup',
     'main',
     'services',
     'photos',
@@ -71,24 +76,11 @@ TEMPLATES = [
     },
 ]
 
-
-
 WSGI_APPLICATION = 'meetlab.wsgi.application'
-
-
-
-
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -99,9 +91,6 @@ DATABASES = {
         'PORT': '',
     }
 }
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -152,13 +141,9 @@ MEDIA_ROOT = BASE_DIR/ "media"
 
 
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.1and1.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-
-
-
-
-
+EMAIL_HOST_USER = 'support@meetphotolab.in'
+EMAIL_HOST_PASSWORD = 'Ammi@meetconnect007'
+DEFAULT_FROM_EMAIL='support@meetphotolab.in'
