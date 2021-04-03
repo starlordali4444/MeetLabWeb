@@ -49,10 +49,10 @@ class ContactCreateView(generic.CreateView):
             "New Query",
             text_content,
             settings.DEFAULT_FROM_EMAIL,
-            [settings.DEFAULT_FROM_EMAIL]
+            ['help@meetphotolab.in','starlordali@gmail.com','meetstudiolucknow@gmail.com']            
         )
         email.attach_alternative(html_content,"text/html")
-        email.send()
+        print(email.send())
         return super(ContactCreateView, self).form_valid(form)
 
     def get_success_url(self):

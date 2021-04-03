@@ -9,7 +9,6 @@ class SliderAdmin(admin.ModelAdmin):
     list_display  = [f.name for f in Slider._meta.fields]
 
 admin.site.unregister(Group)
-admin.site.unregister(User)
 admin.site.register(Contact,ContactAdmin)
 admin.site.register(Slider,SliderAdmin)
 

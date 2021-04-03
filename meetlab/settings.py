@@ -23,16 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'bpy895qg5o$2=@9az%*_w6*@49y9$g-r)oz+mr+xwzw^y(xal!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS =[
     '206.189.141.248',
     'meetphotolab.in',
     'www.meetphotolab.in'
 ]
-
-
-
 
 # Application definition
 
@@ -146,6 +143,6 @@ EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.1and1.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'support@meetphotolab.in'
-EMAIL_HOST_PASSWORD = 'Ammi@meetconnect007'
-DEFAULT_FROM_EMAIL='support@meetphotolab.in'
+EMAIL_HOST_USER = 'help@meetphotolab.in'
+EMAIL_HOST_PASSWORD = 's2y!acMg4YKAX!-'
+DEFAULT_FROM_EMAIL='help@meetphotolab.in'
